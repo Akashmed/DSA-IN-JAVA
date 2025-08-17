@@ -1,0 +1,23 @@
+# Ignore compiled class files
+*.class
+
+# Ignore package files
+*.jar
+*.war
+*.ear
+
+# Ignore JVM crash logs
+hs_err_pid*
+
+# If you’re using IntelliJ / Eclipse / VS Code, ignore their project files:
+.idea/
+*.iml
+*.ipr
+*.iws
+.project
+.classpath
+.settings/
+.vscode/
+bin/
+out/
+target/
