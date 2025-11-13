@@ -43,6 +43,15 @@ public class DynamicArray {
         return -1;
     }
 
+    public void insertAt(int item, int index) {
+
+        for (int i = count-1; i >= index; i--) {
+            array[i+1] = array[i];
+        }
+        array[index] = item;
+        count++ ;
+    }
+
     public void print() {
         for (int i = 0; i < count; i++) {
             System.out.print(array[i] + " ");
