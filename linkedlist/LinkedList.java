@@ -7,7 +7,7 @@ public class LinkedList {
         private int value;
         private Node next;
 
-        public Node(int value){
+        public Node(int value) {
             this.value = value;
         }
     }
@@ -15,13 +15,13 @@ public class LinkedList {
     private Node first = null;
     private Node last = null;
 
-    private boolean isEmpty(){
+    private boolean isEmpty() {
         return first == null;
     }
 
     public void addFirst(int value) {
         Node node = new Node(value);
-        if(isEmpty())
+        if (isEmpty())
             first = last = node;
         node.next = first;
         first = node;
@@ -37,11 +37,11 @@ public class LinkedList {
 
     }
 
-    public void removeFirst(){
-        if(isEmpty())
+    public void removeFirst() {
+        if (isEmpty())
             throw new NoSuchElementException();
 
-        if(first == last){
+        if (first == last) {
             first = last = null;
             return;
         }
@@ -51,17 +51,30 @@ public class LinkedList {
         first = current.next;
     }
 
-    public void removeLast(){
-        Node current = first;
+    public void removeLast() {
+        if(isEmpty())
+            throw new NoSuchElementException();
 
-        while (current.next != null) {
-            if (current.next.next == null) {
-                current.next = null;
-                break;
-            }
+        if(first == last) {
+            first = last = null;
+            return;
+        }
+
+        var previous = getPrevious(last);
+        last = previous;
+        previous.next = null;
+
+
+    }
+
+    private Node getPrevious(Node node) {
+        Node current = first;
+        while (current != node) {
+            if (current.next == node) return current;
 
             current = current.next;
         }
+        return null;
     }
 
     public int indexOf(int value) {
@@ -73,7 +86,7 @@ public class LinkedList {
             index++;
             current = current.next;
         }
-       return -1;
+        return -1;
     }
 
     public boolean contains(int value) {
