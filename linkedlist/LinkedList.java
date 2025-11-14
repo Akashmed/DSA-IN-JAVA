@@ -24,8 +24,10 @@ public class LinkedList {
         Node node = new Node(value);
         if (isEmpty())
             first = last = node;
-        node.next = first;
-        first = node;
+        else{
+            node.next = first;
+            first = node;
+        }
         size++;
     }
 
@@ -33,8 +35,10 @@ public class LinkedList {
         Node node = new Node(value);
         if (isEmpty())
             first = last = node;
-        last.next = node;
-        last = node;
+        else {
+            last.next = node;
+            last = node;
+        }
         size++;
     }
 
@@ -46,7 +50,6 @@ public class LinkedList {
             first = last = null;
         } else {
             Node current = first;
-            first = null;
             first = current.next;
         }
         size--;
@@ -107,6 +110,22 @@ public class LinkedList {
         }
         return array;
     }
+
+    public void reverse(){
+        Node previous = first;
+        Node current = previous.next;
+       while (current != null){
+           var next = current.next;
+           current.next = previous;
+           previous = current;
+           current = next;
+       }
+      first.next = null;
+       first = last;
+
+    }
+    // 2    3   4
+    //      p    c
 
     public void print() {
         Node current = first;
