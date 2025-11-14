@@ -26,7 +26,7 @@ public class LinkedList {
             first = last = node;
         node.next = first;
         first = node;
-        size++ ;
+        size++;
     }
 
     public void addLast(int value) {
@@ -44,27 +44,27 @@ public class LinkedList {
 
         if (first == last) {
             first = last = null;
-        }else {
+        } else {
             Node current = first;
             first = null;
             first = current.next;
         }
-        size-- ;
+        size--;
 
     }
 
     public void removeLast() {
-        if(isEmpty())
+        if (isEmpty())
             throw new NoSuchElementException();
 
-        if(first == last) {
+        if (first == last) {
             first = last = null;
-        }else{
+        } else {
             var previous = getPrevious(last);
             last = previous;
             previous.next = null;
         }
-        size-- ;
+        size--;
     }
 
     private Node getPrevious(Node node) {
@@ -93,8 +93,19 @@ public class LinkedList {
         return indexOf(value) != -1;
     }
 
-    public int size(){
-        return  size;
+    public int size() {
+        return size;
+    }
+
+    public int[] toArray() {
+        int[] array = new int[size];
+        int index = 0;
+        Node current = first;
+        while (current != null){
+            array[index++] = current.value;
+            current = current.next;
+        }
+        return array;
     }
 
     public void print() {
