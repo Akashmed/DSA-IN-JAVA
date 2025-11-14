@@ -11,6 +11,8 @@ public class Main {
         list.addLast(7);
         System.out.println(list.indexOf(2));
         System.out.println(list.contains(9));
+        list.removeFirst();
+        list.removeLast();
         list.print();
     }
 }
