@@ -24,7 +24,7 @@ public class LinkedList {
         Node node = new Node(value);
         if (isEmpty())
             first = last = node;
-        else{
+        else {
             node.next = first;
             first = node;
         }
@@ -104,28 +104,46 @@ public class LinkedList {
         int[] array = new int[size];
         int index = 0;
         Node current = first;
-        while (current != null){
+        while (current != null) {
             array[index++] = current.value;
             current = current.next;
         }
         return array;
     }
 
-    public void reverse(){
+    public void reverse() {
         Node previous = first;
-        Node current = previous.next;
-       while (current != null){
-           var next = current.next;
-           current.next = previous;
-           previous = current;
-           current = next;
-       }
-      first.next = null;
-       first = last;
+        Node current = first.next;
+        while (current != null) {
+            Node next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+        first.next = null;
+        first = last;
 
     }
     // 2    3   4
     //      p    c
+
+    public int getKthFromTheEnd(int k){
+        if(isEmpty())
+            throw new IllegalStateException();
+        var secondPointer = first;
+        var firstPointer = first;
+        int index = 1;
+
+        while(secondPointer != last){
+            if(index > k) firstPointer = firstPointer.next;
+            index++ ;
+            secondPointer = secondPointer.next;
+        }
+        if(index < k)
+            throw new IllegalArgumentException();
+        return firstPointer.value;
+    }
+
 
     public void print() {
         Node current = first;

@@ -10,7 +10,8 @@ public class Main {
         list.addLast(5);
         list.addFirst(2);
         list.addLast(7);
-        System.out.println(Arrays.toString(list.toArray()));
-        list.print();
+//        list.print();
+//        list.reverse();
+        System.out.println(list.getKthFromTheEnd(4));
     }
 }
