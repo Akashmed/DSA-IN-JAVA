@@ -6,7 +6,7 @@ import java.util.Stack;
 
 public class BalancedExpression {
 
-    public void check(String str) {
+    public boolean isBalanced(String str) {
         Stack<Character> stack = new Stack<>();
 
         for (char ch : str.toCharArray()) {
@@ -20,54 +20,18 @@ public class BalancedExpression {
             else if (ch == ')' || ch == '}' || ch == '>' || ch == ']') {
 
                 // If stack is empty, no matching opening
-                if (stack.isEmpty()) {
-                    System.out.println("Not balanced");
-                    return;
-                }
+                if (stack.isEmpty()) return false;
 
-                char peek = stack.peek();
+                var top = stack.pop();
 
-                switch (ch) {
-                    case ')':
-                        if (peek == '(') stack.pop();
-                        else {
-                            System.out.println("Not balanced");
-                            return;
-                        }
-                        break;
-
-                    case '}':
-                        if (peek == '{') stack.pop();
-                        else {
-                            System.out.println("Not balanced");
-                            return;
-                        }
-                        break;
-
-                    case '>':
-                        if (peek == '<') stack.pop();
-                        else {
-                            System.out.println("Not balanced");
-                            return;
-                        }
-                        break;
-                    case ']':
-                        if (peek == '[') stack.pop();
-                        else {
-                            System.out.println("Not balanced");
-                            return;
-                        }
-                        break;
-                }
+                if ((ch == ')' && top != '(') ||
+                        (ch == '}' && top != '{') ||
+                        (ch == '>' && top != '<') ||
+                        (ch == ']' && top != '[')
+                ) return false;
             }
         }
-
-        // Final check
-        if (stack.isEmpty()) {
-            System.out.println("Balanced");
-        } else {
-            System.out.println("Not balanced");
-        }
+        return stack.empty();
     }
 }
 

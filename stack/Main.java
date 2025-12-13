@@ -7,6 +7,6 @@ public class Main {
 //        System.out.println(reversed);
 
         BalancedExpression be = new BalancedExpression();
-        be.check(")(");
+        System.out.println(be.isBalanced("(akash()"));
     }
 }
