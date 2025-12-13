@@ -2,8 +2,6 @@ package stack;
 
 import java.util.Stack;
 
-import java.util.Stack;
-
 public class BalancedExpression {
 
     public boolean isBalanced(String str) {
@@ -12,26 +10,37 @@ public class BalancedExpression {
         for (char ch : str.toCharArray()) {
 
             // Opening brackets
-            if (ch == '(' || ch == '{' || ch == '<' || ch == '[') {
+            if (isLeftBracket(ch)) {
                 stack.push(ch);
             }
 
             // Closing brackets
-            else if (ch == ')' || ch == '}' || ch == '>' || ch == ']') {
+            else if (isRightBracket(ch)) {
 
                 // If stack is empty, no matching opening
                 if (stack.isEmpty()) return false;
 
                 var top = stack.pop();
 
-                if ((ch == ')' && top != '(') ||
-                        (ch == '}' && top != '{') ||
-                        (ch == '>' && top != '<') ||
-                        (ch == ']' && top != '[')
-                ) return false;
+                if (bracketMatch(top, ch)) return false;
             }
         }
         return stack.empty();
+    }
+
+    private boolean isLeftBracket(char ch) {
+        return ch == '(' || ch == '{' || ch == '<' || ch == '[';
+    }
+
+    private boolean isRightBracket(char ch) {
+        return ch == ')' || ch == '}' || ch == '>' || ch == ']';
+    }
+
+    private boolean bracketMatch(char left, char right) {
+        return (right == ')' && left != '(') ||
+                (right == '}' && left != '{') ||
+                (right == '>' && left != '<') ||
+                (right == ']' && left != '[');
     }
 }
 
