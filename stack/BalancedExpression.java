@@ -1,8 +1,12 @@
 package stack;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 public class BalancedExpression {
+    private final List<Character> leftBrackets = Arrays.asList('(', '<', '{', '[');
+    private final List<Character> rightBrackets = Arrays.asList(')', '>', '}', ']');
 
     public boolean isBalanced(String str) {
         Stack<Character> stack = new Stack<>();
@@ -29,18 +33,15 @@ public class BalancedExpression {
     }
 
     private boolean isLeftBracket(char ch) {
-        return ch == '(' || ch == '{' || ch == '<' || ch == '[';
+        return leftBrackets.contains(ch);
     }
 
     private boolean isRightBracket(char ch) {
-        return ch == ')' || ch == '}' || ch == '>' || ch == ']';
+        return rightBrackets.contains(ch);
     }
 
     private boolean bracketMatch(char left, char right) {
-        return (right == ')' && left != '(') ||
-                (right == '}' && left != '{') ||
-                (right == '>' && left != '<') ||
-                (right == ']' && left != '[');
+        return leftBrackets.indexOf(left) == rightBrackets.indexOf(right);
     }
 }
 
