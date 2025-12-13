@@ -12,12 +12,12 @@ public class BalancedExpression {
         for (char ch : str.toCharArray()) {
 
             // Opening brackets
-            if (ch == '(' || ch == '{' || ch == '<') {
+            if (ch == '(' || ch == '{' || ch == '<' || ch == '[') {
                 stack.push(ch);
             }
 
             // Closing brackets
-            else if (ch == ')' || ch == '}' || ch == '>') {
+            else if (ch == ')' || ch == '}' || ch == '>' || ch == ']') {
 
                 // If stack is empty, no matching opening
                 if (stack.isEmpty()) {
@@ -46,6 +46,13 @@ public class BalancedExpression {
 
                     case '>':
                         if (peek == '<') stack.pop();
+                        else {
+                            System.out.println("Not balanced");
+                            return;
+                        }
+                        break;
+                    case ']':
+                        if (peek == '[') stack.pop();
                         else {
                             System.out.println("Not balanced");
                             return;
