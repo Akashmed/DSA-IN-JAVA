@@ -13,19 +13,27 @@ public class Main {
 //        q.reverse(queue);
 //        System.out.println(queue);
 
-        var queue = new ArrayQueue(5);
-        queue.enqueue(5);
-        queue.enqueue(2);
-        queue.enqueue(7);
-        queue.dequeue();
-        queue.dequeue();
-        queue.enqueue(5);
-        queue.enqueue(2);
-        queue.enqueue(7);
-        queue.enqueue(8);
-        queue.printFR();
+//        var queue = new ArrayQueue(5);
+//        queue.enqueue(5);
+//        queue.enqueue(2);
+//        queue.enqueue(7);
+//        queue.dequeue();
+//        queue.dequeue();
+//        queue.enqueue(5);
+//        queue.enqueue(2);
+//        queue.enqueue(7);
+//        queue.enqueue(8);
+//        queue.printFR();
+//
+//        System.out.println(queue);
 
-        System.out.println(queue);
+        var queue = new StackQueue();
+        queue.enqueue(8);
+        queue.enqueue(9);
+        queue.enqueue(3);
+        System.out.println(queue.dequeue());
+        System.out.println(queue.peek());
+
     }
 
 }
