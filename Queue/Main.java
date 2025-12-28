@@ -13,14 +13,19 @@ public class Main {
 //        q.reverse(queue);
 //        System.out.println(queue);
 
-        var queue = new ArrayQueue(3);
+        var queue = new ArrayQueue(5);
         queue.enqueue(5);
         queue.enqueue(2);
         queue.enqueue(7);
         queue.dequeue();
         queue.dequeue();
+        queue.enqueue(5);
+        queue.enqueue(2);
+        queue.enqueue(7);
+        queue.enqueue(8);
+        queue.printFR();
 
-//        System.out.println(queue);
+        System.out.println(queue);
     }
 
 }

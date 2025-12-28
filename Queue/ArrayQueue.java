@@ -6,39 +6,50 @@ public class ArrayQueue {
     private final int[] array;
     private int front = 0;
     private int rear = 0;
+    private int size;
 
-    public ArrayQueue(int capacity){
+    public ArrayQueue(int capacity) {
         array = new int[capacity];
     }
 
-    public void enqueue(int item){
-       if(!isFull()){
-           array[rear++] = item;
-       }else System.out.println("queue is full");
+    public void enqueue(int item) {
+        if (isFull())
+            throw new IllegalArgumentException();
+
+        array[rear] = item;
+        rear = (rear + 1) % array.length;
+        size++ ;
     }
 
-    public void dequeue(){
-        if(!isEmpty()){
-            front++ ;
-        }else System.out.println("queue is empty");
+    public void dequeue() {
+        if (isEmpty())
+            throw new IllegalArgumentException();
+
+        array[front] = 0;
+        front = (front + 1) % array.length;
+        size-- ;
     }
 
-    public int peek(){
+    public void printFR(){
+        System.out.println("F->" + front + " R->"+ rear);
+    }
+
+    public int peek() {
         return array[rear - 1];
     }
 
-    public boolean isFull(){
-        return (!isEmpty() && rear == array.length) ;
+    public boolean isFull() {
+        return size == array.length;
     }
 
-    public boolean isEmpty(){
-        return front == rear;
+    public boolean isEmpty() {
+        return size == 0;
     }
 
     @Override
-    public String toString(){
-        var contents = Arrays.copyOfRange(array, front, rear);
-        return Arrays.toString(contents);
+    public String toString() {
+//        var contents = Arrays.copyOfRange(array, front, rear);
+        return Arrays.toString(array);
     }
 
 }
