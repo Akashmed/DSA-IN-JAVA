@@ -5,13 +5,16 @@ import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
-//        Queue<Integer> queue = new ArrayDeque<>();
-//        var q = new QueueReverser();
-//        queue.add(10);
-//        queue.add(20);
-//        queue.add(40);
+        Queue<Integer> queue = new ArrayDeque<>();
+        var q = new QueueReverser();
+        queue.add(10);
+        queue.add(20);
+        queue.add(40);
+        queue.add(50);
+        queue.add(60);
 //        q.reverse(queue);
 //        System.out.println(queue);
+        q.reverser(queue, 3);
 
 //        var queue = new ArrayQueue(5);
 //        queue.enqueue(5);
@@ -34,17 +37,17 @@ public class Main {
 //        System.out.println(queue.dequeue());
 //        System.out.println(queue.peek());
 
-        var queue = new PriorityQueue();
-        queue.insert(2);
-        queue.insert(8);
-        queue.insert(5);
-        queue.insert(3);
-        queue.insert(1);
-        System.out.println(queue);
-
-        while (!queue.isEmpty()){
-            System.out.print(queue.remove() + " ");
-        }
+//        var queue = new PriorityQueue();
+//        queue.insert(2);
+//        queue.insert(8);
+//        queue.insert(5);
+//        queue.insert(3);
+//        queue.insert(1);
+//        System.out.println(queue);
+//
+//        while (!queue.isEmpty()){
+//            System.out.print(queue.remove() + " ");
+//        }
 
     }
 

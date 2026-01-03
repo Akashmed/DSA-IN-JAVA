@@ -11,7 +11,6 @@ public class PriorityQueue {
         if (isFull())
             throw new IllegalStateException();
 
-
         var i = shiftItemsToInsert(item);
         items[i] = item;
         count++;
