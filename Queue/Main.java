@@ -27,12 +27,24 @@ public class Main {
 //
 //        System.out.println(queue);
 
-        var queue = new StackQueue();
-        queue.enqueue(8);
-        queue.enqueue(9);
-        queue.enqueue(3);
-        System.out.println(queue.dequeue());
-        System.out.println(queue.peek());
+//        var queue = new StackQueue();
+//        queue.enqueue(8);
+//        queue.enqueue(9);
+//        queue.enqueue(3);
+//        System.out.println(queue.dequeue());
+//        System.out.println(queue.peek());
+
+        var queue = new PriorityQueue();
+        queue.insert(2);
+        queue.insert(8);
+        queue.insert(5);
+        queue.insert(3);
+        queue.insert(1);
+        System.out.println(queue);
+
+        while (!queue.isEmpty()){
+            System.out.print(queue.remove() + " ");
+        }
 
     }
 
