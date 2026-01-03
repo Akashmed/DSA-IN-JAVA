@@ -8,9 +8,20 @@ public class PriorityQueue {
     private int count;
 
     public void insert(int item) {
-        if (count == items.length)
+        if (isFull())
             throw new IllegalStateException();
 
+
+        var i = shiftItemsToInsert(item);
+        items[i] = item;
+        count++;
+    }
+
+    private boolean isFull(){
+        return count == items.length;
+    }
+
+    private int shiftItemsToInsert(int item){
         int i;
         for (i = count - 1; i >= 0; i--) {
             if (items[i] > item) {
@@ -19,9 +30,7 @@ public class PriorityQueue {
                 break;
             }
         }
-
-        items[i + 1] = item;
-        count++;
+        return i + 1;
     }
 
     public int remove() {
