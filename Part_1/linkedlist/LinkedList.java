@@ -1,4 +1,4 @@
-package linkedlist;
+package Part_1.linkedlist;
 
 import java.util.NoSuchElementException;
 

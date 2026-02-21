@@ -1,4 +1,4 @@
-package array;
+package Part_1.array;
 
 public class DynamicArray {
     private int[] array;

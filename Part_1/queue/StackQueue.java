@@ -1,6 +1,5 @@
-package Queue;
+package Part_1.queue;
 
-import java.util.Arrays;
 import java.util.Stack;
 
 public class StackQueue {

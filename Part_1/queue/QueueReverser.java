@@ -1,7 +1,5 @@
-package Queue;
+package Part_1.queue;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -24,7 +22,7 @@ public class QueueReverser {
 
         Stack<Integer> stack = new Stack<>();
 
-        // Step 1: push first k elements to stack
+        // Step 1: push first k elements to Part_1.stack
         for (int i = 0; i < k; i++) {
             stack.push(queue.remove());
         }

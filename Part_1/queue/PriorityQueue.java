@@ -1,6 +1,5 @@
-package Queue;
+package Part_1.queue;
 
-import javax.swing.*;
 import java.util.Arrays;
 
 public class PriorityQueue {

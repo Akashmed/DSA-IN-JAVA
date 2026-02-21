@@ -1,4 +1,4 @@
-package stack;
+package Part_1.stack;
 
 public class Main {
     public static void main(String[] args) {

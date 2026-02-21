@@ -1,4 +1,4 @@
-package Queue;
+package Part_1.queue;
 
 import java.util.Arrays;
 
@@ -48,7 +48,7 @@ public class ArrayQueue {
 
     @Override
     public String toString() {
-//        var contents = Arrays.copyOfRange(array, front, rear);
+//        var contents = Arrays.copyOfRange(Part_1.array, front, rear);
         return Arrays.toString(array);
     }
 

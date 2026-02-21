@@ -1,6 +1,4 @@
-package linkedlist;
-
-import java.util.Arrays;
+package Part_1.linkedlist;
 
 public class Main {
     public static void main(String[] args){

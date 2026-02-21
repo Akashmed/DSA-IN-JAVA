@@ -1,4 +1,4 @@
-package stack;
+package Part_1.stack;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +21,7 @@ public class BalancedExpression {
             // Closing brackets
             else if (isRightBracket(ch)) {
 
-                // If stack is empty, no matching opening
+                // If Part_1.stack is empty, no matching opening
                 if (stack.isEmpty()) return false;
 
                 var top = stack.pop();
