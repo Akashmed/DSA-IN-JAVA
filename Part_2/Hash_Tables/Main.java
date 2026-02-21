@@ -11,7 +11,10 @@ public class Main {
 //        map.put(2, "ahmed");
 //        System.out.println(map.get(4));
 
-        var obj = new FirstNotRepeatedCharacter();
-        System.out.println(obj.find("a green apple"));
+//        var obj = new FirstNotRepeatedCharacter();
+//        System.out.println(obj.find("a green apple"));
+
+        var finder = new FirstRepeatedCharacter();
+        System.out.println(finder.find("green apple"));
     }
 }
