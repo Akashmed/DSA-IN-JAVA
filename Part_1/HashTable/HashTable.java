@@ -16,61 +16,64 @@ public class HashTable {
     private LinkedList<Entry>[] entries = new LinkedList[5];
 
     public void put(int key, String value) {
-        var index = hast(key);
-        if (entries[index] == null)
-            entries[index] = new LinkedList<>();
-
-        var bucket = entries[index];
-        for (var entry : bucket) {
-            if (entry.key == key) {
-                entry.value = value;
-                return;
-            }
+        var entry = getEntry(key);
+        if (entry != null) {
+            entry.value = value;
+            return;
         }
-        bucket.addLast(new Entry(key, value));
+
+        getOrCreateBucket(key).add(new Entry(key, value));
     }
 
     private int hast(int key) {
-        return key % entries.length;
+        return Math.floorMod(key, entries.length);
     }
 
     public String get(int key) {
+        var entry = getEntry(key);
+        return (entry == null) ? null : entry.value;
+    }
+
+    public void remove(int key) {
+        var entry = getEntry(key);
+        if (entry == null)
+            throw new IllegalStateException();
+
+        getBucket(key).remove(entry);
+    }
+
+    private LinkedList<Entry> getBucket(int key) {
+        return entries[hast(key)];
+    }
+
+    private LinkedList<Entry> getOrCreateBucket(int key) {
         var index = hast(key);
         var bucket = entries[index];
+        if (bucket == null)
+            entries[index] = new LinkedList<>();
 
+        return bucket;
+    }
+
+    private Entry getEntry(int key) {
+        var bucket = getBucket(key);
         if (bucket != null) {
             for (var entry : bucket) {
-                if (entry.key == key) {
-                    return entry.value;
-                }
+                if (entry.key == key)
+                    return entry;
             }
         }
-
         return null;
     }
 
-//    public void remove(int key) {
-//        key = key % size;
-//        for (int i = 0; i < entries[key].size(); i++) {
-//            if (entries[key].get(i).key == key)
-//                entries[key].remove(i);
-//        }
-//    }
-
-    public void print() {
-        for (int i = 0; i < entries.length; i++) {
-            for (int j = 0; j < entries[i].size(); j++) {
-                System.out.print(i + " row " + j);
-                System.out.println();
-            }
-        }
-    }
 
     public static void main(String[] args) {
         var hashtable = new HashTable();
         hashtable.put(6, "A");
         hashtable.put(8, "B");
         hashtable.put(11, "C");
-        System.out.println(hashtable.get(10));
+        hashtable.put(6, "A++");
+        hashtable.remove(11);
+        System.out.println(hashtable.get(8));
     }
 }
