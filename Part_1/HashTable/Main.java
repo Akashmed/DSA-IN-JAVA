@@ -1,8 +1,7 @@
-package Part_2.Hash_Tables;
+package Part_1.HashTable;
 
 
-import java.util.HashMap;
-import java.util.Map;
+import Part_1.linkedlist.LinkedList;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,7 +16,8 @@ public class Main {
 //        var finder = new FirstRepeatedCharacter();
 //        System.out.println(finder.find("green apple"));
 
-        System.out.println(hash("123124-Aa"));
+//        System.out.println(hash("123124-Aa"));
+
     }
 
     //hash func maps key in an array range then returns an index
