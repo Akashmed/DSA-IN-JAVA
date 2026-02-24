@@ -25,7 +25,7 @@ public class HashTable {
         getOrCreateBucket(key).add(new Entry(key, value));
     }
 
-    private int hast(int key) {
+    private int hash(int key) {
         return Math.floorMod(key, entries.length);
     }
 
@@ -43,11 +43,11 @@ public class HashTable {
     }
 
     private LinkedList<Entry> getBucket(int key) {
-        return entries[hast(key)];
+        return entries[hash(key)];
     }
 
     private LinkedList<Entry> getOrCreateBucket(int key) {
-        var index = hast(key);
+        var index = hash(key);
         var bucket = entries[index];
         if (bucket == null)
             entries[index] = new LinkedList<>();
