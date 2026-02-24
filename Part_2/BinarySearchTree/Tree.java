@@ -43,7 +43,17 @@ public class Tree {
     }
 
     public boolean find(int value) {
-        return lookup(value) != null;
+        var current = root;
+
+        while (current != null) {
+            if (value > current.value) {
+                current = current.rightChild;
+            } else if (value < current.value) {
+                current = current.leftChild;
+            } else
+                return true;
+        }
+        return false;
     }
 
     private Node lookup(int value) {
