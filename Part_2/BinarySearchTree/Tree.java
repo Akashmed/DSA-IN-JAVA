@@ -82,5 +82,16 @@ public class Tree {
         traverseInOrder(root.rightChild);
     }
 
+    public void traversePostOrder(){
+        traverseInOrder(root);
+    }
 
+    private void traversePostOrder(Node root){
+        if(root == null)
+            return;
+
+        traverseInOrder(root.leftChild);
+        traverseInOrder(root.rightChild);
+        System.out.println(root.value);
+    }
 }
