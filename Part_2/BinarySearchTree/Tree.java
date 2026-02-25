@@ -56,17 +56,18 @@ public class Tree {
         return false;
     }
 
-    private Node lookup(int value) {
-        Node current = root;
-
-        while (current != null) {
-            if (value > current.value) {
-                current = current.rightChild;
-            } else {
-                current = current.leftChild;
-            }
-        }
-
-        return current;
+    public void traversePreOrder() {
+        traversePreOrder(root);
     }
+
+    private void traversePreOrder(Node root) {
+        if (root == null)
+            return;
+
+        System.out.println(root.value);
+        traversePreOrder(root.leftChild);
+        traversePreOrder(root.rightChild);
+    }
+
+
 }
